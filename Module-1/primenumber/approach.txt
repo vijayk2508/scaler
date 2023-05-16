@@ -1,0 +1,51 @@
+1) Trial Division:
+
+Time Complexity: O(sqrt(n))
+
+2) Sieve of Eratosthenes:
+Time Complexity: O(n log log n)
+Space Complexity: O(n)
+
+3)Sieve of Atkin:
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+4) Miller-Rabin Primality Test:
+Time Complexity: O(k log^3 n) (k is the number of iterations)
+Space Complexity: O(1)
+
+5) AKS Primality Test:
+Time Complexity: O(n^6)
+Space Complexity: O(n^2)
+
+6)Lucas-Lehmer Test (for Mersenne primes):
+Time Complexity: O(log^2 p)
+Space Complexity: O(log p)
+
+7) Fermat Primality Test:
+Time Complexity: O(k log n) (k is the number of iterations)
+Space Complexity: O(1)
+
+8) Solovay-Strassen Primality Test:
+Time Complexity: O(k log^3 n) (k is the number of iterations)
+Space Complexity: O(1)
+
+9) Baillie-PSW Primality Test:
+Time Complexity: O(log^3 n)
+Space Complexity: O(log n)
+
+10) Elliptic Curve Primality Proving (ECPP):
+Time Complexity: Subexponential time complexity
+Space Complexity: O(log n)
+
+
+
+The choice of the best approach for primality testing depends on various factors such as the size of the input number, the level of accuracy required, and the computational resources available.
+
+For smaller numbers, trial division or one of the sieve methods like Sieve of Eratosthenes or Sieve of Atkin can be sufficient. These methods are relatively simple to implement and have a moderate time complexity.
+
+For larger numbers, probabilistic algorithms like Miller-Rabin, Fermat, and Solovay-Strassen are often used. These methods can be much faster than deterministic algorithms, especially for large input sizes. However, they have a small probability of returning a false positive, which can be reduced by increasing the number of iterations performed.
+
+The AKS primality test and elliptic curve primality proving (ECPP) are deterministic methods that provide a guaranteed correct result, but they are typically slower and require more computational resources than probabilistic methods.
+
+In general, the Miller-Rabin and AKS primality tests are considered to be two of the most efficient and reliable algorithms for primality testing. However, the best approach depends on the specific requirements and constraints of your use case.
