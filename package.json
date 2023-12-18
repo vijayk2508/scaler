@@ -1,11 +1,19 @@
 {
-  "name": "scaler-program",
+  "name": "y",
   "version": "1.0.0",
-  "description": "",
   "main": "perfectNumber.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijayk2508/scaler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vijayk2508/scaler/issues"
+  },
+  "homepage": "https://github.com/vijayk2508/scaler#readme",
+  "description": ""
 }

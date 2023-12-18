@@ -1,4 +1,4 @@
-function findEquilibriumIndicesCount(arr) {
+function solve(arr) {
     let count = 0;
 
     const prefixSum = [];
@@ -21,5 +21,5 @@ function findEquilibriumIndicesCount(arr) {
 }
 
 const arr = [-3, 2, 4, -1];
-const equilibriumCount = findEquilibriumIndicesCount(arr);
+const equilibriumCount = solve(arr);
 console.log("Count of equilibrium indices:", equilibriumCount);
