@@ -54,3 +54,98 @@ Removing arr[1] from the given array modifies arr[] to { 1, 1 } such that arr[0]
 Removing arr[2] from the given array modifies arr[] to { 1, 1 } such that arr[0] = arr[1] 
 Therefore, the required output is 3.
 */
+
+function solve(A) {
+  const n = A.length;
+  if (n === 1) {
+    return 1;
+  }
+
+  if (n === 2) {
+    return 0;
+  }
+
+  let sumEven = 0;
+  let sumOdd = 0;
+
+  for (let i = 0; i < n; i++) {
+    if (i % 2 === 0) {
+      sumEven += A[i];
+    } else {
+      sumOdd += A[i];
+    }
+  }
+
+  let currOdd = 0;
+  let currEven = A[0];
+  let res = 0;
+  let newEvenSum = 0;
+  let newOddSum = 0;
+
+  for (let i = 1; i < n - 1; i++) {
+    console.log(`i=${i},  A[${i}] = ${A[i]}`);
+    if (i % 2 === 0) {
+      console.log(
+        `currEven = currEven(${currEven}) + A[${i}](${A[i]}) = ${
+          currEven + A[i]
+        }`
+      );
+
+      currEven += A[i];
+
+      newOddSum = currOdd + sumEven - currEven;
+      newEvenSum = currEven + sumOdd - currOdd - A[i];
+
+      console.log(
+        `newOddSum = currOdd(${currOdd}) + sumEven(${sumEven}) - currEven(${currEven}) = ${newOddSum}`
+      );
+      console.log(
+        `newEvenSum = currEven(${currEven}) + sumOdd(${sumOdd}) - currOdd(${currOdd}) - A[${i}](${A[i]}) = ${newEvenSum}`
+      );
+    } else {
+      console.log(
+        `currOdd = currOdd(${currOdd}) + A[${i}](${A[i]}) = ${currOdd + A[i]}`
+      );
+
+      currOdd += A[i];
+
+      newEvenSum = currEven + sumOdd - currOdd;
+
+      newOddSum = currOdd + sumEven - currEven - A[i];
+
+      console.log(
+        `newEvenSum = currEven(${currEven}) + sumOdd(${sumOdd}) - currOdd(${currOdd}) = ${newEvenSum}`
+      );
+      console.log(
+        `newOddSum = currOdd(${currOdd}) + sumEven(${sumEven}) - currEven(${currEven}) - A[${i}](${A[i]}) = ${newOddSum}`
+      );
+    }
+    if (newEvenSum === newOddSum) {
+      res++;
+    }
+  }
+
+  console.log(sumOdd, sumEven, A[0], A[n - 1], res);
+  if (sumOdd === sumEven - A[0]) {
+    res++;
+    console.log(res);
+  }
+
+  if (n % 2 === 1) {
+    if (sumOdd === sumEven - A[n - 1]) {
+      res++;
+      console.log(res);
+    }
+  } else {
+    if (sumEven === sumOdd - A[n - 1]) {
+      res++;
+      console.log(res);
+    }
+  }
+
+  console.log(res);
+
+  return res;
+}
+
+solve([4, 3, 2, 7, 6, -2]);
